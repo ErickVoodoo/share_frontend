@@ -9,7 +9,6 @@ import { LinearProgress } from 'material-ui/Progress';
 import { Image, Price } from '../../Components/';
 // $FlowIssue
 import styles from './styles.scss';
-import Menu from './Menu.jsx';
 
 const cx: () => string = classNames.bind(styles);
 
@@ -117,7 +116,6 @@ class Item extends Component {
             {price}
           </Price>
         </div>
-        <Match pattern="/list/:id/edit" component={Menu} />
       </div>
     )
   }

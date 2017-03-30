@@ -4,10 +4,8 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames/bind';
 
 import { PROGRESSBARS, LOADER_TYPE, LOADER_STYLE } from '../../Constants/progressbar.js';
-import { ItemDialog, Loader, Scrollable, Map } from '../../Components/';
+import { ItemDialog, Loader, Scrollable, Map, Menu } from '../../Components/';
 import { addQuery, removeQuery, subscribeHistory, getSearchParams } from '../../Utils/url.js';
-import Menu from './Menu.jsx';
-// import Map from './Map.jsx';
 import Item from './Item.jsx';
 // $FlowIssue
 import styles from './styles.scss';
@@ -66,7 +64,6 @@ class List extends Component {
   };
 
   onHoverItem = ({ lat, lon }: { lat: string, lon: string }) : void => {
-    console.log('onHover');
     if (window.ymaps && window.ymaps.geocode) {
       window.ymaps.geocode(`${lat},${lon}`, {
           results: 1
@@ -83,7 +80,7 @@ class List extends Component {
   };
 
   onBlurItem = () : void => {
-    console.log('onBlur');
+
   };
 
   render() {

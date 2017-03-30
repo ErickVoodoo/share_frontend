@@ -18,7 +18,7 @@ const onScroll = ():void => {
   if (scrollable && shadow) {
     if (scrollable.scrollTop > 0) {
       // $FlowIssue
-      shadow.style['box-shadow'] = '0px 4px 7px -1px rgba(0,0,0,.5)';
+      shadow.style['box-shadow'] = '0px 2px 7px -1px rgba(0,0,0,.5)';
     } else {
       // $FlowIssue
       shadow.style['box-shadow'] = 'none';

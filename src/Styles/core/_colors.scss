@@ -9,3 +9,12 @@ $divider-color:        #BDBDBD;
 
 $background-gray: #f0f0f0;
 $background-gray-dark: #e6e6e6;
+
+
+$color_gray_light: rgb(248, 248, 248);
+$color_gray_medium: rgb(225, 225, 225);
+$color_gray_dark: rgb(163, 163, 163);
+$color_gray_dark_text: rgb(121, 121, 121);
+
+:export { color_gray_light: $color_gray_light }
+:export { color_gray_medium: $color_gray_medium }

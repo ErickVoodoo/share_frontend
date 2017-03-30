@@ -4,10 +4,10 @@ import React, { Component } from 'react';
 import classNames from 'classnames/bind';
 import { isFunction } from 'lodash';
 
-import { getFromQuery, removeQuery, clearQuery } from '../../Utils/url.js';
-import { SelectField } from '../../Components/';
+import { getFromQuery, removeQuery, clearQuery } from '../Utils/url.js';
+import { SelectField } from './';
 // $FlowIssue
-import styles from './styles.scss';
+import styles from './style.scss';
 
 const cx: () => string = classNames.bind(styles);
 
@@ -72,19 +72,19 @@ class Menu extends Component {
         />
         <SelectField
           id={'city_select'}
-          name={'city_id'}
+          name={'city'}
           primaryText={'Город'}
           items={cities.toJS().map((name) => ({ id: name, name }))}
-          selected={getFromQuery('city_id')}
+          selected={getFromQuery('city')}
           onSelect={this.onSelect}
           disabled={!(cities && cities.toJS() && !!cities.toJS().length)}
         />
         <SelectField
           id={'street_select'}
-          name={'street_id'}
+          name={'street'}
           primaryText={'Улица'}
           items={streets.toJS().map((name) => ({ id: name, name }))}
-          selected={getFromQuery('street_id')}
+          selected={getFromQuery('street')}
           onSelect={this.onSelect}
           disabled={!(streets && streets.toJS() && !!streets.toJS().length)}
         />

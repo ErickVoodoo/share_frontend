@@ -7,6 +7,7 @@ import SelectField from './SelectField.jsx';
 import Image from './Image.jsx';
 import Scrollable from './Scrollable.jsx';
 import Map from './Map.jsx';
+import Menu from './Menu';
 
 export {
   HeaderButton,
@@ -18,4 +19,5 @@ export {
   Image,
   Scrollable,
   Map,
+  Menu,
 };

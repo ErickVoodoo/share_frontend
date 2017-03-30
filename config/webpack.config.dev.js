@@ -155,7 +155,7 @@ module.exports = {
       // When you `import` an asset, you get its (virtual) filename.
       // In production, they would get copied to the `build` folder.
       {
-        test: /\.(ico|jpe?g|png|gif|webp|svg)(\?.*)?$/,
+        test: /\.(ico|jpe?g|png|gif|webp)(\?.*)?$/,
         exclude: /\/(favicon32.ico|icon.png)?$/,
         loader: 'file-loader',
         options: {
@@ -208,6 +208,12 @@ module.exports = {
           name: 'static/media/[name].[hash:8].[ext]',
         },
       },
+      // {
+      //   test: /\.svg$/,
+      //   use: [{
+      //     loader: 'svg-react-loader',
+      //   }]
+      // }
     ],
   },
   plugins: [
@@ -244,8 +250,7 @@ module.exports = {
           }),
         ],
         eslint: {
-          configFile: path.join(__dirname, 'eslint.js'),
-          useEslintrc: false,
+          useEslintrc: true,
         },
         sassLoader: {
           includePaths: [path.resolve(__dirname, 'src', 'scss', '../')],

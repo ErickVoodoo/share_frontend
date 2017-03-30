@@ -51,7 +51,9 @@
   .header {
     display: flex;
     flex-direction: row;
-    padding: 8px;
+    background: $color_gray_light;
+    padding: 8px 16px;
+    box-shadow: rgba(0, 0, 0, 0.498039) 0px 2px 7px -3px;
 
     .person {
       flex: 1;
@@ -59,6 +61,7 @@
       flex-direction: row;
       padding-right: 16px;
       align-items: center;
+      color: $color_gray_dark;
 
       .avatar {
         width: 50px;
@@ -86,25 +89,30 @@
   .content {
     display: flex;
     flex-direction: row;
-    max-height: 450px;
+    height: 100%;
+    margin-left: 24px;
 
     .images {
       display: flex;
       flex-direction: column;
+      margin: 20px 20px 20px 0;
+      position: relative;
 
       .photos {
         display: flex;
         flex-direction: column;
-        min-width: 176px;
-        width: 176px;
         overflow: hidden;
         overflow-y: auto;
         position: relative;
         max-height: 450px;
+        transition: all 0.2s ease-in-out;
+
+        div:not(:last-child) {
+          margin-bottom: 20px;
+        }
 
         .photo {
           cursor: pointer;
-          margin: 8px 8px 0 8px;
           width: 160px;
           height: 90px;
           border: 0.5px solid #e6e6e6;
@@ -114,6 +122,10 @@
           background-size: cover;
           background-position: 50%;
         }
+
+        &.padding_images {
+          padding-bottom: 50px;
+        }
       }
 
       .content_button {
@@ -121,22 +133,22 @@
         width: 100%;
         min-height: 50px;
         height: 50px;
-        opacity: 0.8;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         color: #fff;
         background-color: $primary-color;
-
         transition: all 0.4s ease-in-out;
+        position: absolute;
+        bottom: 0;
 
         span {
           text-transform: uppercase;
         }
 
         &:hover {
-          opacity: 1;
+          background-color: #00abc1;
         }
 
         &.hidden_content {
@@ -148,19 +160,26 @@
     }
 
     .data {
-      display: flex;
+      display: inline-block;
       flex-direction: column;
       padding: 0px 8px;
       width: 100%;
       opacity: 1;
       transition: opacity 0.2s ease-in-out;
+      box-shadow: 0 2px 7px -2px rgba(0,0,0,.498039);
+      padding-right: 24px;
+      color: $color_gray_dark_text;
+      padding: 28px;
+      text-transform: uppercase;
+      overflow: auto;
 
       .title,
       .discount,
       .info,
       .description,
+      .tags,
       .media {
-        padding-bottom: 12px;
+        padding-bottom: 16px;
       }
 
       .title {
@@ -199,6 +218,7 @@
       }
 
       .tags {
+        display: inline-block;
         :first-child {
           margin-left: 0px;
         }
@@ -214,6 +234,17 @@
           overflow: hidden;
           white-space: nowrap;
           padding-right: 16px;
+          color: $primary-color;
+          text-transform: uppercase;
+
+          span {
+            font-weight: 600;
+            color: $color_gray_dark_text;
+
+            &:after {
+              content: ' '
+            }
+          }
         }
 
         .city {
@@ -231,11 +262,35 @@
         max-height: 120px;
         overflow: hidden;
         overflow-y: auto;
-        margin-bottom: 16px;
+        color: $color_gray_dark;
+      }
+
+      .connect {
+        color: $color_gray_dark_text;
       }
 
       .media {
+        display: block;
 
+        .social_item {
+          display: inline-flex;
+          align-items: center;
+          cursor: pointer;
+          padding: 4px 0px;
+          width: 50%;
+          text-transform: uppercase;
+          color: $color_gray_dark_text;
+          transition: all 0.4s ease-in-out;
+          filter: grayscale(100%);
+
+          &:hover {
+            filter: none;
+          }
+
+          :first-child {
+            padding-right: 8px;
+          }
+        }
       }
 
       .other {
@@ -247,14 +302,16 @@
         opacity: 0;
         width: 0;
         height: 0;
+        padding: 0;
       }
     }
 
     .preview {
       width: 100%;
-      background: #e6e6e6;
       opacity: 1;
       transition: opacity 0.2s ease-in-out;
+      box-shadow: 0 2px 7px -2px rgba(0,0,0,.498039);
+      padding: 20px;
 
       .photo {
         background-repeat: no-repeat;
@@ -410,7 +467,7 @@
 }
 
 .image {
-  background: $background-gray;
+  background: $color_gray_medium;
 }
 
 .scrollable {
@@ -435,4 +492,11 @@
     width: 100%;
     z-index: 2
   }
+}
+
+.menu {
+  width: 250px;
+  min-width: 250px;
+  background-color: $background-gray;
+  overflow-y: scroll;
 }
